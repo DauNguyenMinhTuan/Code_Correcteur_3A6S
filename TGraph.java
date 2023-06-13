@@ -89,7 +89,7 @@ public class TGraph {
     public Matrix decode(Matrix code, int rounds) {
         // On fixe round = 100
         rounds = 100;
-        
+
         // Initialisation
         // Pour chaque N dans G.V (graphe vérification a.k.a. right)
         for (int i = 0; i < n_c; i++) {
@@ -147,12 +147,12 @@ public class TGraph {
                 // count[N] <-- 0
                 count[i] = 0;
                 // Pour chaque K dans N.voisins
-                for (int j = 1; j < w_c; j++) {
+                for (int j = 1; j <= w_c; j++) {
                     // count[N] <-- count[N] + K.val
                     count[i] += left[right[i][j]][0];
                 }
                 // Si count[N] > max
-                if(count[i] > max){
+                if (count[i] > max) {
                     // max <-- count[N]
                     max = count[i];
                 }
@@ -160,9 +160,9 @@ public class TGraph {
 
             // Renversement de bits
             // Pour chaque N dans G.V
-            for(int i=0;i< n_c;i++){
+            for (int i = 0; i < n_c; i++) {
                 // Si count[N] = max
-                if(count[i] == max){
+                if (count[i] == max) {
                     // N.val = 1 - N.val
                     // Ici, on change l'état de cet bit
                     right[i][0] = 1 - right[i][0];

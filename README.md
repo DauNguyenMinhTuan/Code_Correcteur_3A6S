@@ -9,9 +9,8 @@
 #### Exo7 - fini
 #### Exo8 - fini
 #### Exo9 - fini
-* y<sub>1</sub> est correctement corrigé
-* La correction est erronée pour y<sub>2</sub>
-* La correction échoue pour y<sub>3</sub> et y<sub>4</sub>
+* y<sub>1</sub>, y<sub>2</sub> et y<sub>3</sub> sont correctement corrigés
+* La correction échoue pour y<sub>4</sub>
 ## Troisième tâche
 #### Exo10
 #### Exo11
