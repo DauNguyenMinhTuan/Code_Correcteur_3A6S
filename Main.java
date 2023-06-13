@@ -64,6 +64,52 @@ public class Main {
         System.out.println("Le mot u");
         u.display();
         System.out.println("L'encodage x de u");
-        u.multiply(hbase.sysTransform().genG()).display();
+        Matrix x = u.multiply(hbase.sysTransform().genG());
+        x.display();
+
+        System.out.println("Le graphe de Tanner de H");
+        TGraph tGraph = new TGraph(hbase, 3, 4);
+        tGraph.display();
+
+        byte[][] tabe1 = { { 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } };
+        Matrix e1 = new Matrix(tabe1);
+        Matrix y1 = x.add(e1);
+        System.out.println("Le mot y1");
+        y1.display();
+        System.out.println("Le mot y1 corrigé");
+        tGraph.decode(y1, 100).display();
+        System.out.println("Le mot x original");
+        x.display();
+
+        byte[][] tabe2 = { { 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } };
+        Matrix e2 = new Matrix(tabe2);
+        Matrix y2 = x.add(e2);
+        System.out.println("Le mot y2");
+        y2.display();
+        System.out.println("Le mot y2 corrigé");
+        tGraph.decode(y2, 100).display();
+        System.out.println("Le mot x original");
+        x.display();
+
+        byte[][] tabe3 = { { 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 } };
+        Matrix e3 = new Matrix(tabe3);
+        Matrix y3 = x.add(e3);
+        System.out.println("Le mot y3");
+        y3.display();
+        System.out.println("Le mot y3 corrigé");
+        tGraph.decode(y3, 100).display();
+        System.out.println("Le mot x original");
+        x.display();
+
+        byte[][] tabe4 = { { 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0 } };
+        Matrix e4 = new Matrix(tabe4);
+        Matrix y4 = x.add(e4);
+        System.out.println("Le mot y4");
+        y4.display();
+        System.out.println("Le mot y4 corrigé");
+        tGraph.decode(y4, 100).display();
+        System.out.println("Le mot x original");
+        x.display();
+
     }
 }

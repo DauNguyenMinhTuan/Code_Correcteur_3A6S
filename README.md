@@ -5,10 +5,13 @@
 #### Exo4 - fini
 #### Exo5 - fini
 #### Exo6 - fini
-## Deuxième tâche
-#### Exo7
-#### Exo8
-#### Exo9
+## Deuxième tâche - finie
+#### Exo7 - fini
+#### Exo8 - fini
+#### Exo9 - fini
+* y<sub>1</sub> est correctement corrigé
+* La correction est erronée pour y<sub>2</sub>
+* La correction échoue pour y<sub>3</sub> et y<sub>4</sub>
 ## Troisième tâche
 #### Exo10
 #### Exo11
