@@ -21,29 +21,30 @@ public class Main {
 
     public static void main(String[] arg) {
 
-        // byte[][] tab = { { 1, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 } };
-        // Matrix m = new Matrix(tab);
-        // m.display();
+        // test Matrix
+        byte[][] tab = { { 1, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 } };
+        Matrix m = new Matrix(tab);
+        m.display();
 
         // test addition
-        // byte[][] tab1 = { { 1, 0, 1 }, { 0, 1, 0 }, { 1, 0, 1 } };
-        // Matrix m1 = new Matrix(tab1);
-        // byte[][] tab2 = {{0, 1, 0}, {1, 0, 1}, {0, 1, 0}};
-        // Matrix m2 = new Matrix(tab2);
-        // m1.add(m2).display();
+        byte[][] tab1 = { { 1, 0, 1 }, { 0, 1, 0 }, { 1, 0, 1 } };
+        Matrix m1 = new Matrix(tab1);
+        byte[][] tab2 = {{0, 1, 0}, {1, 0, 1}, {0, 1, 0}};
+        Matrix m2 = new Matrix(tab2);
+        m1.add(m2).display();
 
         // test multiplication
-        // byte[][] tab1 = { { 1, 0, 1 }, { 1, 1, 0 } };
-        // Matrix m1 = new Matrix(tab1);
-        // byte[][] tab2 = { { 0, 1 }, { 1, 1 }, { 1, 0 } };
-        // Matrix m2 = new Matrix(tab2);
-        // m1.multiply(m2).display();
+        byte[][] tab3 = { { 1, 0, 1 }, { 1, 1, 0 } };
+        Matrix m3 = new Matrix(tab3);
+        byte[][] tab4 = { { 0, 1 }, { 1, 1 }, { 1, 0 } };
+        Matrix m4 = new Matrix(tab4);
+        m3.multiply(m4).display();
 
         // test transpose
-        // byte[][] tab1 = { { 1, 0, 1 }, { 1, 1, 0 } };
-        // Matrix m1 = new Matrix(tab1);
-        // m1.display();
-        // m1.transpose().display();
+        byte[][] tab5 = { { 1, 0, 1 }, { 1, 1, 0 } };
+        Matrix m5 = new Matrix(tab5);
+        m5.display();
+        m5.transpose().display();
 
         // check data - not correct size
         // Matrix check = loadMatrix("data/matrix-2000-6000-5-15", 2048, 6144);
@@ -51,71 +52,74 @@ public class Main {
         // System.out.println(check.getCols());
         // check.display();
 
-        // Matrix hbase = loadMatrix("data/matrix-15-20-3-4", 15, 20);
-        // System.out.println("Matrice de controle H");
-        // hbase.display();
-        // // hbase.addCol(1, 0);
-        // System.out.println("Matrice de controle systematique H'");
-        // hbase.sysTransform().display();
-        // System.out.println("Matrice generatrice G");
-        // hbase.sysTransform().genG().display();
+        // 1e tache
+        // test sur petit matrice
+        Matrix hbase = loadMatrix("data/matrix-15-20-3-4", 15, 20);
+        System.out.println("Matrice de controle H");
+        hbase.display();
+        System.out.println("Matrice de controle systematique H'");
+        hbase.sysTransform().display();
+        System.out.println("Matrice generatrice G");
+        hbase.sysTransform().genG().display();
 
-        // byte[][] tabU = { { 1, 0, 1, 0, 1 } };
-        // Matrix u = new Matrix(tabU);
-        // System.out.println("Le mot u");
-        // u.display();
-        // System.out.println("L'encodage x de u");
-        // Matrix x = u.multiply(hbase.sysTransform().genG());
-        // x.display();
+        byte[][] tabU = { { 1, 0, 1, 0, 1 } };
+        Matrix U = new Matrix(tabU);
+        System.out.println("Le mot u");
+        U.display();
+        System.out.println("L'encodage x de u");
+        Matrix X = U.multiply(hbase.sysTransform().genG());
+        X.display();
 
-        // System.out.println("Le graphe de Tanner de H");
-        // TGraph tGraph = new TGraph(hbase, 3, 4);
-        // tGraph.display();
+        // 2e tache
+        System.out.println("Le graphe de Tanner de H");
+        TGraph tGraph = new TGraph(hbase, 3, 4);
+        tGraph.display();
 
-        // byte[][] tabe1 = { { 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        // 0 } };
-        // Matrix e1 = new Matrix(tabe1);
-        // Matrix y1 = x.add(e1);
-        // System.out.println("Le mot y1");
-        // y1.display();
-        // System.out.println("Le mot y1 corrigé");
-        // tGraph.decode(y1, 100).display();
-        // System.out.println("Le mot x original");
-        // x.display();
+        byte[][] tabe1 = { { 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0 } };
+        Matrix e1 = new Matrix(tabe1);
+        Matrix y1 = X.add(e1);
+        System.out.println("Le mot y1");
+        y1.display();
+        System.out.println("Le mot y1 corrigé");
+        tGraph.decode(y1, 100).display();
+        System.out.println("Le mot x original");
+        X.display();
 
-        // byte[][] tabe2 = { { 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        // 0 } };
-        // Matrix e2 = new Matrix(tabe2);
-        // Matrix y2 = x.add(e2);
-        // System.out.println("Le mot y2");
-        // y2.display();
-        // System.out.println("Le mot y2 corrigé");
-        // tGraph.decode(y2, 100).display();
-        // System.out.println("Le mot x original");
-        // x.display();
+        byte[][] tabe2 = { { 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0 } };
+        Matrix e2 = new Matrix(tabe2);
+        Matrix y2 = X.add(e2);
+        System.out.println("Le mot y2");
+        y2.display();
+        System.out.println("Le mot y2 corrigé");
+        tGraph.decode(y2, 100).display();
+        System.out.println("Le mot x original");
+        X.display();
 
-        // byte[][] tabe3 = { { 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,
-        // 0 } };
-        // Matrix e3 = new Matrix(tabe3);
-        // Matrix y3 = x.add(e3);
-        // System.out.println("Le mot y3");
-        // y3.display();
-        // System.out.println("Le mot y3 corrigé");
-        // tGraph.decode(y3, 100).display();
-        // System.out.println("Le mot x original");
-        // x.display();
+        byte[][] tabe3 = { { 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,
+        0 } };
+        Matrix e3 = new Matrix(tabe3);
+        Matrix y3 = X.add(e3);
+        System.out.println("Le mot y3");
+        y3.display();
+        System.out.println("Le mot y3 corrigé");
+        tGraph.decode(y3, 100).display();
+        System.out.println("Le mot x original");
+        X.display();
 
-        // byte[][] tabe4 = { { 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
-        // 0 } };
-        // Matrix e4 = new Matrix(tabe4);
-        // Matrix y4 = x.add(e4);
-        // System.out.println("Le mot y4");
-        // y4.display();
-        // System.out.println("Le mot y4 corrigé");
-        // tGraph.decode(y4, 100).display();
-        // System.out.println("Le mot x original");
-        // x.display();
+        byte[][] tabe4 = { { 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+        0 } };
+        Matrix e4 = new Matrix(tabe4);
+        Matrix y4 = X.add(e4);
+        System.out.println("Le mot y4");
+        y4.display();
+        System.out.println("Le mot y4 corrigé");
+        tGraph.decode(y4, 100).display();
+        System.out.println("Le mot x original");
+        X.display();
 
+        // 3e tache
         Matrix H = loadMatrix("data/Matrix-2048-6144-5-15", 2048, 6144);
         Matrix G = H.sysTransform().genG();
         byte[][] tabu = new byte[1][4096];
