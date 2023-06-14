@@ -13,7 +13,7 @@
 * La correction échoue pour y<sub>4</sub>
 ## Troisième tâche
 #### Exo10 - fini
-* $k = 6144 - 2048 = 4096$
+* $k = 4096$
 * $n = 6144$
 * $r = n - k = 2048$
 * $\tau = \frac{k}{n} = \frac{4096}{6144} = \frac{2}{3}$
@@ -27,4 +27,3 @@
 * Le code ne décode jamais incorrectement un mot
 
 &roarr; Les perfomances de ce code sont suffisantes pour l'application décrite
-#### Exo14
