@@ -42,31 +42,27 @@ public class Main {
         System.out.println("Résultat de m1 + m2");
         m1.add(m2).display();
 
-        System.out.println("--------------------------------------------------------------\n");
-
         // test multiplication
-        System.out.println("Test multiplication");
-        byte[][] tab3 = { { 1, 0, 1 }, { 1, 1, 0 } };
-        Matrix m3 = new Matrix(tab3);
-        byte[][] tab4 = { { 0, 1 }, { 1, 1 }, { 1, 0 } };
-        Matrix m4 = new Matrix(tab4);
-        System.out.println("Matrice m3");
-        m3.display();
-        System.out.println("Matrice m4");
-        m4.display();
-        System.out.println("Résultat de m3 x m4");
-        m3.multiply(m4).display();
-
-        System.out.println("--------------------------------------------------------------\n");
+//        System.out.println("Test multiplication");
+//        byte[][] tab3 = { { 1, 0, 1 }, { 1, 1, 0 } };
+//        Matrix m3 = new Matrix(tab3);
+//        byte[][] tab4 = { { 0, 1 }, { 1, 1 }, { 1, 0 } };
+//        Matrix m4 = new Matrix(tab4);
+//        System.out.println("Matrice m3");
+//        m3.display();
+//        System.out.println("Matrice m4");
+//        m4.display();
+        System.out.println("Résultat de m1 x m2");
+        m1.multiply(m2).display();
 
         // test transpose
-        byte[][] tab5 = { { 1, 0, 1 }, { 1, 1, 0 } };
-        Matrix m5 = new Matrix(tab5);
-        System.out.println("Test transpose");
-        System.out.println("Matrice m5");
-        m5.display();
-        System.out.println("Matrice m5 transposé");
-        m5.transpose().display();
+//        byte[][] tab5 = { { 1, 0, 1 }, { 1, 1, 0 } };
+//        Matrix m5 = new Matrix(tab5);
+//        System.out.println("Test transpose");
+//        System.out.println("Matrice m5");
+//        m5.display();
+        System.out.println("Matrice m1 transposé");
+        m1.transpose().display();
 
         // check data - not correct size
         // Matrix check = loadMatrix("data/matrix-2000-6000-5-15", 2048, 6144);

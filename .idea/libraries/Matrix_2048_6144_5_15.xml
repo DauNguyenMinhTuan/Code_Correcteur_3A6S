@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Matrix-2048-6144-5-15">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/data/Matrix-2048-6144-5-15.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
