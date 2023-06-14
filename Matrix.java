@@ -117,8 +117,11 @@ public class Matrix {
     public Matrix multiply(Matrix m) {
         Matrix r = new Matrix(rows, m.cols);
 
-        if (m.rows != cols)
+        if (m.rows != cols) {
             System.out.printf("Erreur de multiplication\n");
+            System.out.printf("u has %d columns\n", cols);
+            System.out.printf("G has %d rows\n", m.rows);
+        }
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < m.cols; j++) {
@@ -221,4 +224,23 @@ public class Matrix {
         Matrix G = new Matrix(tabG);
         return G;
     }
+
+    public Matrix errGen(int w) {
+        byte[][] tabe = new byte[1][cols];
+        for (int i = 0; i < cols; i++) {
+            tabe[0][i] = 0;
+        }
+        Random rand = new Random();
+        for (int i = 0; i < w; i++) {
+            int index = rand.nextInt(cols);
+            if (tabe[0][index] == 0) {
+                tabe[0][index] = 1;
+            } else {
+                i--;
+            }
+        }
+        Matrix e = new Matrix(tabe);
+        return e;
+    }
+
 }

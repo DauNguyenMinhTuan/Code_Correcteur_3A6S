@@ -88,7 +88,7 @@ public class TGraph {
 
     public Matrix decode(Matrix code, int rounds) {
         // On fixe round = 100
-        rounds = 100;
+        // rounds = 100;
 
         // Initialisation
         // Pour chaque N dans G.V (graphe vérification a.k.a. right)
